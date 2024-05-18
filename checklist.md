@@ -2,14 +2,61 @@
 ## High
 - Tag VPC / EC2 / DB
 - Delete unused resources
-- Configure access logging
-- Create CloudWatch Dashboard
-- Check security group ingress
+- <details>
+    <summary>Configure access logging</summary>
+
+    - VPC flow logs
+    - ALB
+    - API Gateway
+    - CloudFront
+    - WAF
+    - DNS query log?
+  </details>
+
+- <details>
+    <summary>Create CloudWatch Dashboard</summary>
+
+    # Dashboard
+
+    ## Service
+
+    - 각 계층의 RED
+        - Latency의 경우 avg와 p99를 모두 모니터링
+        - CloudFront
+        - API gateway
+        - ALB
+        - Lambda
+
+    ## Infra
+
+    - Capacity
+        - Application / Node의 갯수
+        - Target group healthy count
+        - Desired와 current를 동시에 비교
+    - Util
+        - Network
+        - Scaling의 기준이 되는 metric
+            - CPU / memory
+            - request
+
+    ## Alarm
+
+    - Configure alarms
+  </details>
+- <details>
+    <summary>Check security group ingress</summary>
+
+    - Delete 0.0.0.0/0
+    - Modify well-known ports
+      - 22
+      - 3306
+      - Other DB ports
+  </details>
 - Create VPC endpoints
 - Apply HTTPS / CloudFront
-- Ensure min 2 applications + Auto scaling
-- Check application health
 - Enforce IMDS v2
+- Ensure min 2 applications + Auto scaling
+- Restart application & check health
 
 ## Medium
 - Enable KMS key rotation
